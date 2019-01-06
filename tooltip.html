@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		.divContent {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		.divContent img {
+			width: 200px;
+			height: 200px;
+		}
+		.divDialog {
+			position: absolute;
+			left: calc(100% + 20px);
+			top: 50%;
+			transform: translateY(-50%) scale(0.1, 0.1);
+			background-color: #2e2e2e;
+			box-sizing: border-box;
+			color: white;
+			width: 120px;
+			height: 120px;
+			border-radius: 12px;
+			padding: 10px;
+			opacity: 0;
+			transition: .4s;
+		}
+		.divDialog::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(-50%, -50%) rotateZ(45deg);
+			width: 12px;
+			height: 12px;
+			background-color: #2e2e2e;
+			box-sizing: border-box;
+			z-index: -1;
+		}
+
+		.divContent:hover .divDialog {
+			opacity: 1;
+			transform: translateY(-50%) scale(1, 1);
+		}
+
+
+		
+		/****
+			EM CIMA
+		.divDialog::before {
+			left: 50%;
+			top: 100%;
+			transform: translate(-50%, -50%) rotateZ(45deg);
+		}
+		.divDialog {
+			left: 50%;
+			top: 0;
+			transform: translate(-50%, calc(-100% - 20px)) scale(0.1, 0.1);
+		}
+		.divContent:hover .divDialog {
+			transform: translate(-50%, calc(-100% - 20px)) scale(1, 1);
+		}
+		****/
+	</style>
+</head>
+<body>
+	<div class="divContent">
+		<img title="Text from browser" src="imagem.jpg" />  
+		<div class="divDialog">
+			Text...
+		</div>
+	</div>
+</body>
+</html>
